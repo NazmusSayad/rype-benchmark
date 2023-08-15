@@ -1,7 +1,7 @@
 {
   "type": "module",
   "dependencies": {
-    "rype": "^1.0.12",
+    "rype": "^1.0.14",
     "zod": "^3.21.4"
   }
 }

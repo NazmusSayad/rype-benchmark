@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { r } from 'rype'
 function check(label, fn) {
   const start = Date.now()
-  for (let i = 0; i < 1000_00; i++) fn()
+  for (let i = 0; i < 1000_000; i++) fn()
   const end = Date.now()
   const diff = end - start
   console.log(label + ':', diff + 'ms')

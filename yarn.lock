@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-rype@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/rype/-/rype-1.0.12.tgz#c69364ce125a429dd46b42ec5ed68d422cb30b60"
-  integrity sha512-Y+Y6jmmSgcD1Zw6vxvdok0Uq+ZRR/HKs5lU673yer/YjJ5XJss2ARtYjUA0O7SuufmnZMfPLXwqLe3hJrCk9Xg==
+rype@^1.0.14:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/rype/-/rype-1.0.14.tgz#a6c2d88359ba3d290ba8ccc0048b29922d15cc45"
+  integrity sha512-BvvryEc6XLsY+dKN43FeLt7OASHRhwVxH7GTNqKEqTMLX7iMN9N7RmksTbtC1uEQasBhN25WB3KWUyNGGF4J9w==
 
 zod@^3.21.4:
   version "3.21.4"
