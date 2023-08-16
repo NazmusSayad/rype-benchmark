@@ -1,5 +1,8 @@
 {
   "type": "module",
+  "scripts": {
+    "start": "node ./index.js"
+  },
   "dependencies": {
     "rype": "^1.0.14",
     "valibot": "^0.12.0",
