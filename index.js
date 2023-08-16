@@ -1,31 +1,35 @@
 import { z } from 'zod'
 import { r } from 'rype'
-function check(label, fn) {
-  const start = Date.now()
-  for (let i = 0; i < 1000_000; i++) fn()
-  const end = Date.now()
-  const diff = end - start
-  console.log(label + ':', diff + 'ms')
-  return diff
-}
-const input = { name: 'John Doe', age: 0 }
+import * as y from 'yup'
+import * as v from 'valibot'
+import { check, compare } from './core.js'
+const input = { name: 'John Doe' }
 
-function test() {
+for (let i = 0; i < 5; i++) {
+  const yup = check('Yup', () => {
+    y.string().validateSync(input.name)
+    y.object()
+      .shape({ name: y.string().default('none') })
+      .validateSync(input)
+  })
+
   const zod = check('Zod', () => {
     z.string().parse(input.name)
-    z.object({ name: z.string() }).parse(input)
+    z.object({ name: z.string().default('none') }).parse(input)
+  })
+
+  const valibot = check('Valibot', () => {
+    v.parse(v.string(), input.name)
+    v.parse(v.object({ name: v.withDefault(v.string(), 'none') }), input)
   })
 
   const rype = check('Rype', () => {
     r.string().parse(input.name)
-    r.object({ name: r.string() }).parse(input)
+    r.object({ name: r.string().default('none') }).parse(input)
   })
 
-  console.log('Rype is', +(zod / rype).toFixed(2), 'times faster than Zod')
+  compare('Yup', yup, rype)
+  compare('Zod', zod, rype)
+  compare('Valibot', valibot, rype)
   console.log()
 }
-
-test()
-test()
-test()
-test()
