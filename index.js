@@ -1,35 +1,36 @@
+import j from 'joi'
 import { z } from 'zod'
 import { r } from 'rype'
 import * as y from 'yup'
 import * as v from 'valibot'
-import { check, compare } from './core.js'
-const input = { name: 'John Doe' }
+import { compare } from './core.js'
 
-for (let i = 0; i < 5; i++) {
-  const yup = check('Yup', () => {
+const input = { name: 'John Doe' }
+compare({
+  Zod() {
+    z.string().parse(input.name)
+    z.object({ name: z.string().default('none') }).parse(input)
+  },
+
+  Yup() {
     y.string().validateSync(input.name)
     y.object()
       .shape({ name: y.string().default('none') })
       .validateSync(input)
-  })
+  },
 
-  const zod = check('Zod', () => {
-    z.string().parse(input.name)
-    z.object({ name: z.string().default('none') }).parse(input)
-  })
+  Joi() {
+    j.string().validate(input.name)
+    j.object({ name: j.string().default('none') }).validate(input)
+  },
 
-  const valibot = check('Valibot', () => {
+  Valibot() {
     v.parse(v.string(), input.name)
     v.parse(v.object({ name: v.withDefault(v.string(), 'none') }), input)
-  })
+  },
 
-  const rype = check('Rype', () => {
+  Rype() {
     r.string().parse(input.name)
     r.object({ name: r.string().default('none') }).parse(input)
-  })
-
-  compare('Yup', yup, rype)
-  compare('Zod', zod, rype)
-  compare('Valibot', valibot, rype)
-  console.log()
-}
+  },
+})

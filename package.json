@@ -1,10 +1,12 @@
 {
   "type": "module",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "dev": "node --watch ./index.js"
   },
   "dependencies": {
-    "rype": "^1.0.14",
+    "joi": "^17.9.2",
+    "rype": "^1.0.16",
     "valibot": "^0.12.0",
     "yup": "^1.2.0",
     "zod": "^3.21.4"
