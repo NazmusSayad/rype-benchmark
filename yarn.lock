@@ -47,10 +47,10 @@ property-expr@^2.0.5:
   resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-2.0.5.tgz#278bdb15308ae16af3e3b9640024524f4dc02cb4"
   integrity sha512-IJUkICM5dP5znhCckHSv30Q4b5/JA5enCtkRHYaOVOAocnH/1BQEYTC5NMfT3AVl/iXKdr3aqQbQn9DxyWknwA==
 
-rype@^1.0.16:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/rype/-/rype-1.0.16.tgz#a2a7487df313ace0c59d58ae1d0a8ee7ff0d9dd4"
-  integrity sha512-8EzCN4ugnQSx7Xlbg6EEyCHaLR5B4GXm8X3T2GeXPujAkv0MLWNyXF5ZtXHEuhGPoUeQq1THVa/tJpakMjLSDw==
+rype@^1.1.21:
+  version "1.1.21"
+  resolved "https://registry.yarnpkg.com/rype/-/rype-1.1.21.tgz#3fc30b41b6404779f26deb16c557f1c064dcf25e"
+  integrity sha512-RBTNyyL7Po6cL7nq215r5cOeQgZJKqTy9qw3EH2c2eIYiaHZs77cxGomID9AY04GHu884uerHKnYaVXhSS0FGQ==
 
 tiny-case@^1.0.3:
   version "1.0.3"

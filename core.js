@@ -1,4 +1,5 @@
-const LOOP_COUNT = 10_000_000
+// Modify here to make the benchmark faster or slower
+const LOOP_COUNT = 100_000
 const ACCURACY_LOOP_COUNT = 6
 
 function calculateAverage(numbers) {
