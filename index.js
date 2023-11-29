@@ -7,14 +7,9 @@ import { compare } from './core.js'
 
 const input = { name: 'John Doe' }
 compare({
-  Joi() {
-    j.string().validate(input.name)
-    j.object({ name: j.string().default('none') }).validate(input)
-  },
-
-  Zod() {
-    z.string().parse(input.name)
-    z.object({ name: z.string().default('none') }).parse(input)
+  Valibot() {
+    v.parse(v.string(), input.name)
+    v.parse(v.object({ name: v.withDefault(v.string(), 'none') }), input)
   },
 
   Yup() {
@@ -22,9 +17,14 @@ compare({
     y.object({ name: y.string().default('none') }).validateSync(input)
   },
 
-  Valibot() {
-    v.parse(v.string(), input.name)
-    v.parse(v.object({ name: v.withDefault(v.string(), 'none') }), input)
+  Zod() {
+    z.string().parse(input.name)
+    z.object({ name: z.string().default('none') }).parse(input)
+  },
+
+  Joi() {
+    j.string().validate(input.name)
+    j.object({ name: j.string().default('none') }).validate(input)
   },
 
   Rype() {
